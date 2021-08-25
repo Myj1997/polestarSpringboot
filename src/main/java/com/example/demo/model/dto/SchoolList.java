@@ -1,9 +1,10 @@
-package com.example.demo.model;
+package com.example.demo.model.dto;
 
 import java.util.Date;
 
 public class SchoolList {
 
+    private int schoolNo;
     private String schoolName;
     private String schoolDate;
     private String major;
@@ -12,17 +13,17 @@ public class SchoolList {
     public SchoolList() {
     }
 
-    public SchoolList(String schoolName, String schoolDate, String major, String division) {
-        this.schoolName = schoolName;
-        this.schoolDate = schoolDate;
-        this.major = major;
-        this.division = division;
+    public int getSchoolNo() {
+        return schoolNo;
+    }
+
+    public void setSchoolNo(int schoolNo) {
+        this.schoolNo = schoolNo;
     }
 
     public String getSchoolName() {
         return schoolName;
     }
-
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
@@ -55,8 +56,9 @@ public class SchoolList {
     @Override
     public String toString() {
         return "SchoolList{" +
-                "schoolName='" + schoolName + '\'' +
-                ", schoolDate=" + schoolDate +
+                "schoolNo=" + schoolNo +
+                ", schoolName='" + schoolName + '\'' +
+                ", schoolDate='" + schoolDate + '\'' +
                 ", major='" + major + '\'' +
                 ", division='" + division + '\'' +
                 '}';

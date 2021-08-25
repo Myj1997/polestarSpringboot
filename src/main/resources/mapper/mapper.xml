@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.PersonMapper">
+
+    <resultMap type="com.example.demo.model.dto.Person" id="PersonResult">
+        <id column="PER_NO" property="personNo"/>
+        <result column="NAME" property="name"/>
+        <result column="ENG_NAME" property="engName"/>
+        <result column="AGE" property="age"/>
+        <result column="PHONE_NUM" property="phoneNum"/>
+        <result column="EMAIL" property="email"/>
+        <result column="GITHUB_LINK" property="gitHubLink"/>
+        <result column="NOTION_LINK" property="notionLink"/>
+    </resultMap>
+
+    <resultMap type="com.example.demo.model.dto.SchoolList" id="SchoolListsResult">
+        <id column="SCH_NO" property="schoolNo"/>
+        <result column="SCH_NAME" property="schoolName"/>
+        <result column="SCH_DATE" property="schoolDate"/>
+        <result column="MAJOR" property="major"/>
+        <result column="DIVISION" property="division"/>
+    </resultMap>
+
+    <resultMap type="com.example.demo.model.dto.Academy" id="AcademyResult">
+        <id column="ACA_NO" property="academyNo"/>
+        <result column="TERM" property="term"/>
+        <result column="ACA_NAME" property="academyName"/>
+        <result column="PROCESS_NAME" property="processName"/>
+        <result column="MAJOR" property="major"/>
+        <result column="DIVISION" property="division"/>
+    </resultMap>
+
+    <resultMap type="com.example.demo.model.dto.Skills" id="SkillResult">
+        <id column="SKILL_NO" property="skillNo"/>
+        <result column="SKILL_NAME" property="skillName"/>
+    </resultMap>
+
+    <select id="selectPerson" resultMap="PersonResult">
+        SELECT * FROM PERSON
+    </select>
+
+    <select id="selectSchoolList" parameterType="int" resultMap="SchoolListsResult">
+        SELECT
+               *
+          FROM SCHOOL_LIST
+         WHERE PER_NO = #{personNo}
+    </select>
+
+    <select id="selectAcademy" parameterType="int" resultMap="AcademyResult">
+        SELECT
+               *
+          FROM ACADEMY
+         WHERE PER_NO = #{personNo}
+    </select>
+
+    <select id="selectSkillsList" parameterType="int" resultMap="SkillResult">
+        SELECT
+               *
+          FROM SKILLS
+         WHERE PER_NO = #{personNo}
+    </select>
+
+
+
+</mapper>

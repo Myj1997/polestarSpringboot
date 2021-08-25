@@ -1,11 +1,22 @@
-package com.example.demo.model;
+package com.example.demo.model.dto;
 
 public class Academy {
 
+    private int academyNo;
     private String term;
     private String academyName;
     private String processName;
     private String division;
+
+    public Academy(){}
+
+    public int getAcademyNo() {
+        return academyNo;
+    }
+
+    public void setAcademyNo(int academyNo) {
+        this.academyNo = academyNo;
+    }
 
     public String getTerm() {
         return term;
@@ -42,7 +53,8 @@ public class Academy {
     @Override
     public String toString() {
         return "Academy{" +
-                "term='" + term + '\'' +
+                "academyNo=" + academyNo +
+                ", term='" + term + '\'' +
                 ", academyName='" + academyName + '\'' +
                 ", processName='" + processName + '\'' +
                 ", division='" + division + '\'' +
