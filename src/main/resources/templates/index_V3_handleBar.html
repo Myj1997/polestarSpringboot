@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link href="/css/selfIntroduction.css" rel="stylesheet">
+
+    <script type="text/javascript" src="/js/selfIntroduction.js"></script>
+    <script type="text/javascript" src="/js/handlebars-v4.7.7.js"></script>
+</head>
+<body id="body1" style="background : lightgray;">
+    <div class="container">
+        <header class="d-flex justify-content-center py-3 header">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link">자기소개서</a></li>
+                <button onclick="btnClick()" id="btn1" class="btn-lg btn-primary">hi</button>
+                <button id="btn-changeName" class="btn-sm btn-primary" style="margin-left: 10px;">이름 바꾸기</button>
+
+                <!-- Button trigger modal -->
+<!--                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+<!--                    demo modal-->
+<!--                </button>-->
+
+                <!-- Modal -->
+<!--                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                    <div class="modal-dialog">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body">-->
+<!--                                ...-->
+<!--                            </div>-->
+<!--                            <div class="modal-footer">-->
+<!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                                <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <input type="hidden" value="0" id="inputHidden">
+            </ul>
+        </header>
+
+    <div class="row g-5">
+        <img src="/img/다운로드.png" onclick="img_click()" class="col-6 img-thumbnail img">
+
+        <div id="humanInfo" class="col-xl-6 mb-4 bg-light rounded-3" style="width : 48%;">
+            <div class="py-5 cof">
+                <h5 class=" fw-bold" style="margin-bottom : 3%">인적사항</h5>
+                <table>
+                    <tr>
+                        <th class="thWidth">이름</th>
+                        <td th:text="${userInfo.person.name}"></td>
+                        <th>영문</th>
+                        <td th:text="${userInfo.person.engName}">min</td>
+                    </tr>
+                    <tr>
+                        <th>나이</th>
+                        <td colspan="3" class="tdWidth" th:text="${userInfo.person.age}">123123</td>
+                    </tr>
+                    <tr>
+                        <th class="thWidth">연락처</th>
+                        <td th:text="${userInfo.person.phoneNum}">010</td>
+                        <th class="thWidth">e-mail</th>
+                        <td th:text="${userInfo.person.email}">gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th> GitHub</th>
+                        <td>
+                            <a href="https://github.com/Myj1997" target="_blank">link</a>
+                        </td>
+                        <th> Notion</th>
+                        <td>
+                            <a href="https://bumpy-trust-35a.notion.site/bbc2e96456214a4cb01edd169ea22d50"
+                               target="_blank">link</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <hr style="width:60%!important; margin : auto">
+        <div class="row">
+            <div class=" mb-4 bg-light rounded-3 mb4">
+                <div class="py-5 cof" style="tex">
+                    <h5 class=" fw-bold" style="margin-bottom : 3%">학력 사항</h5>
+                    <table>
+                        <thead >
+                            <th width="200px">재학기간</th>
+                            <th width="200px">학교명</th>
+                            <th width="150px">전공</th>
+                            <th width="150px">구분</th>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item : ${userInfo.schoolListList}">
+                            <td th:text="${item.schoolDate}"></td>
+                            <td th:text="${item.schoolName}"></td>
+                            <td th:text="${item.major}"></td>
+                            <td th:text="${item.division}"></td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <hr style="width:60%!important; margin : auto">
+
+        <div class="row">
+            <div class=" mb-4 bg-light rounded-3 mb4">
+                <div class="py-5 cof" style="tex">
+                    <h5 class=" fw-bold" style="margin-bottom : 3%">IT 교육</h5>
+                    <table>
+                        <thead >
+                            <th style="width:200px">교육 기간</th>
+                            <th width="200px">기관명</th>
+                            <th width="150px">과정명</th>
+                            <th width="150px">구분</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td th:text="${userInfo.academy.term}"></td>
+                            <td th:text="${userInfo.academy.academyName}"></td>
+                            <td th:text="${userInfo.academy.processName}">3</td>
+                            <td th:text="${userInfo.academy.division}">3</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <hr style="width:60%!important; margin : auto">
+
+        <div class="row">
+            <div class=" mb-4 bg-light rounded-3 mb4">
+                <div class="py-5 cof" style="tex">
+                    <h5 class=" fw-bold" style="margin-bottom : 3%">보유기술</h5>
+                    <table style="text-align : center; margin: auto;">
+                        <thead>
+                        <th width="200px">
+                        <img src="/img/java_icon.png" alt="스프링" class="img-fluid img-thumbnail skimg">
+                        </th>
+                        <th width="200px">
+                        <img src="/img/spring_icon.png" alt="자바" class="img-fluid img-thumbnail skimg">
+                        </th>
+                        </thead>
+                        <tbody>
+                        <tr style>
+                            <th:block th:each="item : ${userInfo.skills}">
+                                <td id="test" th:text="${item.skillName}"></td>
+                            </th:block>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+</html>
