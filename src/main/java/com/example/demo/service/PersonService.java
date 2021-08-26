@@ -21,19 +21,21 @@ public class PersonService {
     }
 
 
-    public Person selectPerson() {
-        return mapper.selectPerson();
+    public Person selectPersonByPersonNo(int personNo) {
+        return mapper.selectPersonByPersonNo(personNo);
     }
 
     public List<SchoolList> selectSchoolList(int personNo) {
-        return mapper.selectSchoolList(personNo);
+        return mapper.selectSchoolListByPersonNo(personNo);
     }
 
     public Academy selectAcademy(int personNo) {
-        return mapper.selectAcademy(personNo);
+        return mapper.selectAcademyByPersonNo(personNo);
     }
 
     public List<Skills> selectSkillsList(int personNo) {
-        return  mapper.selectSkillsList(personNo);
+        return  mapper.selectSkillsListByPersonNo(personNo);
     }
+
+
 }

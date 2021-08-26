@@ -27,7 +27,7 @@ public class PersonDbConnectController {
         int personNo = 1;
 
         Person person = new Person();
-        person = personService.selectPerson();
+        person = personService.selectPersonByPersonNo(personNo);
 
         List<SchoolList> schoolLists = new ArrayList<>();
         schoolLists = personService.selectSchoolList(personNo);
@@ -45,6 +45,7 @@ public class PersonDbConnectController {
         model.addAttribute("userInfo",userInfo);
         return "index_V3";
     }
+
 
 
 

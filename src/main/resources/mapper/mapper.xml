@@ -36,25 +36,25 @@
         <result column="SKILL_NAME" property="skillName"/>
     </resultMap>
 
-    <select id="selectPerson" resultMap="PersonResult">
+    <select id="selectPersonByPersonNo" resultMap="PersonResult">
         SELECT * FROM PERSON
     </select>
 
-    <select id="selectSchoolList" parameterType="int" resultMap="SchoolListsResult">
+    <select id="selectSchoolListByPersonNo" parameterType="int" resultMap="SchoolListsResult">
         SELECT
                *
           FROM SCHOOL_LIST
          WHERE PER_NO = #{personNo}
     </select>
 
-    <select id="selectAcademy" parameterType="int" resultMap="AcademyResult">
+    <select id="selectAcademyByPersonNo" parameterType="int" resultMap="AcademyResult">
         SELECT
                *
           FROM ACADEMY
          WHERE PER_NO = #{personNo}
     </select>
 
-    <select id="selectSkillsList" parameterType="int" resultMap="SkillResult">
+    <select id="selectSkillsListByPersonNo" parameterType="int" resultMap="SkillResult">
         SELECT
                *
           FROM SKILLS

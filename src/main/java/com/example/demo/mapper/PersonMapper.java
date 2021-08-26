@@ -12,11 +12,11 @@ import java.util.List;
 @Mapper
 public interface PersonMapper {
 
-    Person selectPerson();
+    Person selectPersonByPersonNo(int personNo);
 
-    List<SchoolList> selectSchoolList(int personNo);
+    List<SchoolList> selectSchoolListByPersonNo(int personNo);
 
-    Academy selectAcademy(int personNo);
+    Academy selectAcademyByPersonNo(int personNo);
 
-    List<Skills> selectSkillsList(int personNo);
+    List<Skills> selectSkillsListByPersonNo(int personNo);
 }
