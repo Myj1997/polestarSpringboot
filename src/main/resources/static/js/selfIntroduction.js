@@ -11,8 +11,6 @@ function btnClick(){
         document.getElementById("inputHidden").value = 0;
     }
 
-
-
     var btn1 = document.getElementById('btn1');
     btn1.innerText = "하이";
 }
@@ -20,12 +18,13 @@ function btnClick(){
 
 $(document).ready(function(){
 
+
     const source = $('#info').html();
 
     const template = Handlebars.compile(source);
 
     const data = {
-        engName : "인적사항"
+        engName : "인적사항H"
     }
 
     const html = template(data);
@@ -38,10 +37,11 @@ $(document).ready(function(){
     $.ajax({
             url: "/personApi/get",
             type: "GET"
-        }).done(function(result) {
+    }).done(function(result) {
             console.dir(result);
-        })
-        .fail(function(xhr, status, errorThrown) {
+    })
+    .fail(function(xhr, status, errorThrown) {
             console.log(xhr);
-        });
+    });
+
 });

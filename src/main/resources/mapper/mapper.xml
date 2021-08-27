@@ -61,6 +61,12 @@
          WHERE PER_NO = #{personNo}
     </select>
 
+    <select id="selectMyName" parameterType="int" resultType="String">
+        SELECT
+               NAME
+          FROM PERSON
+         WHERE PER_NO = #{personNo}
+    </select>
 
 
 </mapper>

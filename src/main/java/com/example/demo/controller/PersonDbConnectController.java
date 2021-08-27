@@ -21,7 +21,7 @@ public class PersonDbConnectController {
         this.personService = personService;
     }
 
-    @GetMapping("/selectPerson")
+    @GetMapping("/userInfo")
     public String selectPerson(Model model){
 
         int personNo = 1;

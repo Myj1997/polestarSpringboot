@@ -19,4 +19,6 @@ public interface PersonMapper {
     Academy selectAcademyByPersonNo(int personNo);
 
     List<Skills> selectSkillsListByPersonNo(int personNo);
+
+    String selectMyName(int personNo);
 }

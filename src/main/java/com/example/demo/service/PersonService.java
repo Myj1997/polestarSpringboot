@@ -38,4 +38,7 @@ public class PersonService {
     }
 
 
+    public String selectMyName(int personNo) {
+        return mapper.selectMyName(personNo);
+    }
 }
