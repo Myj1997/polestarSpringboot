@@ -102,7 +102,7 @@ public class PersonAPI {
     }
 
     @GetMapping("/exportExcel")
-    public String exportExcel(){
+    public void exportExcel(){
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("new sheet");
         Row row = null;
@@ -110,8 +110,21 @@ public class PersonAPI {
         int rowNum = 0;
         int colNum = 0;
 
-        row = sheet.createRow(0);
-        row.createCell(0).setCellValue("민연준");
+        int personNo = 1;
+//        List<SchoolList> schoolList = new ArrayList<>();
+        Academy academy = personService.selectAcademy(personNo);
+
+
+//        for(int i = 0; i < academy.; i++){
+//            row = sheet.createRow(rowNum ++);
+//
+//            colNum = 0;
+//
+//            for (int j = 0; j < 5; j++){
+//                row.createCell(colNum++).setCellValue(schoolList.get(i).);
+//            }
+//        }
+
 
         try {
             FileOutputStream fileOutputStream = new FileOutputStream("C:/Users/xray21/Desktop/newExcel.xlsx");
@@ -122,9 +135,6 @@ public class PersonAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        return "1";
     }
 
 }

@@ -63,4 +63,6 @@ public class SchoolList {
                 ", division='" + division + '\'' +
                 '}';
     }
+
+
 }
